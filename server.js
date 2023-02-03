@@ -32,10 +32,6 @@ app.use('/api/v1/articles', articleApiRoutes)
 app.use('/api/v1/profiles', profileApiRoutes)
 app.use('/api/v1/tags', tagsApiRoute)
 
-app.get('/', (req, res) => {
-	res.status(200).json({ message: 'hello world 🌎🚀🎃🎃🔐🗝' })
-})
-
 // error and 404 handler middleware
 app.use(notFoundHandler)
 app.use(errorHandler)
