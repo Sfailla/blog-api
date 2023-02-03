@@ -2,7 +2,13 @@
 	"name": "express-api-generator",
 	"version": "1.0.0",
 	"description": "a scalable back-end blog-api",
+	"author": "Steven Failla",
 	"main": "server.js",
+	"scripts": {
+		"start": "npm run server:watch",
+		"server:watch": "npx nodemon server.js",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
 	"dependencies": {
 		"bcryptjs": "^2.4.3",
 		"body-parser": "^1.19.0",
@@ -17,11 +23,5 @@
 		"validator": "^13.1.1"
 	},
 	"devDependencies": {},
-	"scripts": {
-		"start": "npm run server:watch",
-		"server:watch": "npx nodemon server.js",
-		"test": "echo \"Error: no test specified\" && exit 1"
-	},
-	"author": "Steven Failla",
 	"license": "MIT"
 }
