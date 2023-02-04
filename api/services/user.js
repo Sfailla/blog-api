@@ -10,6 +10,7 @@ const {
 	makeAuthUser,
 	verifyToken
 } = require('../helpers/user-auth')
+const { getRandomHexColor } = require('../helpers/helper-fns')
 
 class UserDatabaseService {
 	constructor(userModel, profileModel) {
@@ -36,7 +37,7 @@ class UserDatabaseService {
 		const profile = await this.profileModel.create({
 			username: user.username,
 			userId: user.id,
-			avatar: `https://ui-avatars.com/api/?name=${user.username}&color=fff&background=random&rounded=true&format=svg&length=1`
+			avatar: `https://ui-avatars.com/api/?name=${user.username}&color=fff&background=${getRandomHexColor()}&rounded=true&format=svg&length=1`
 		})
 		return { profile }
 	}
