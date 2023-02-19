@@ -8,6 +8,17 @@ const notFoundHandler = (req, res, next) => {
 	next(error)
 }
 
+// no stacktraces leaked to user in production
+const prodErrorHandler = (err, req, res, next) => {
+	res.status(err.status || 500)
+	res.json({
+		errors: {
+			message: err.message,
+			error: {}
+		}
+	})
+}
+
 const errorHandler = (error, req, res, next) => {
 	const isDevelopment = req.app.get('env') === 'development'
 	const { code, status, name, message, stack } = error
@@ -37,6 +48,7 @@ const handleListen = (port, env) => {
 
 module.exports = {
 	notFoundHandler,
+	prodErrorHandler,
 	errorHandler,
 	handleListen
 }
